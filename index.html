@@ -876,65 +876,6 @@ nav {
   border-radius: 0 0 3px 3px;
 }
 
-/* ── More Drawer (slide up) ── */
-.bn-drawer {
-  display: none;
-  position: fixed;
-  bottom: var(--bn); left: 0; right: 0;
-  z-index: 9998;
-  background: #0a1e36;
-  border-top: 1px solid rgba(201,162,39,0.3);
-  border-radius: 18px 18px 0 0;
-  padding: 10px 20px 20px;
-  transform: translateY(102%);
-  transition: transform 0.3s cubic-bezier(0.32,0.72,0,1);
-  box-shadow: 0 -8px 40px rgba(0,0,0,0.5);
-}
-.bn-drawer.open { transform: translateY(0); }
-.bn-drawer-pip {
-  width: 36px; height: 4px;
-  background: rgba(168,203,232,0.2);
-  border-radius: 2px;
-  margin: 0 auto 14px;
-}
-.bn-drawer-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.88rem; color: var(--gold-light);
-  margin-bottom: 14px;
-  letter-spacing: 0.02em;
-}
-.bn-drawer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-.bn-drawer-btn {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 6px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(168,203,232,0.1);
-  border-radius: 12px;
-  padding: 12px 4px;
-  color: var(--sky-light);
-  font-size: 0.56rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: background 0.15s;
-}
-.bn-drawer-btn span:first-child { font-size: 1.3rem; line-height: 1; }
-.bn-drawer-btn:active { background: rgba(201,162,39,0.18); color: var(--gold-light); }
-
-.bn-scrim {
-  display: none;
-  position: fixed; inset: 0;
-  z-index: 9997;
-  background: rgba(0,0,0,0.5);
-}
-
 /* ================================================
    MOBILE LAYOUT — max-width 768px
    ================================================ */
@@ -942,7 +883,7 @@ nav {
 
   /* Show bottom nav elements */
   .bnav        { display: block; }
-  .bn-drawer   { display: block; }
+  
 
   /* Hide desktop nav items */
   .nav-links   { display: none !important; }
@@ -1162,7 +1103,7 @@ nav {
   }
 
   /* Drawer grid smaller screens */
-  .bn-drawer-grid { grid-template-columns: repeat(4, 1fr); }
+  
 }
 
 @media (max-width: 400px) {
@@ -1170,7 +1111,7 @@ nav {
   .m-name   { font-size: 0.95rem; }
   .hero-stats { grid-template-columns: repeat(3, 1fr) !important; }
   .books-grid { grid-template-columns: 1fr !important; }
-  .bn-drawer-grid { grid-template-columns: repeat(3, 1fr); }
+  
 }
 
 
@@ -1180,6 +1121,83 @@ nav {
   .m-card  { display: flex !important; }
   .m-links { display: flex !important; }
 }
+
+/* ── Bottom Navigation Bar (scrollable) ── */
+.bnav {
+  display: none;                    /* desktop: hidden */
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 9999;
+  height: var(--bn);
+  background: #07182e;
+  border-top: 2px solid rgba(201,162,39,0.4);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.45);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+/* Horizontal scroll container */
+.bnav-scroll {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 4px;
+  /* fade edges hint for scrollability */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0px,
+    black 10px,
+    black calc(100% - 10px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0px,
+    black 10px,
+    black calc(100% - 10px),
+    transparent 100%
+  );
+}
+.bnav-scroll::-webkit-scrollbar { display: none; }
+
+.bn-btn {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 3px;
+  flex: 0 0 auto;               /* don't shrink — fixed width */
+  width: 68px;
+  background: none; border: none;
+  color: rgba(168,203,232,0.45);
+  font-size: 1.18rem;
+  cursor: pointer;
+  padding: 4px 0 2px;
+  position: relative;
+  transition: color 0.15s;
+  scroll-snap-align: start;
+  -webkit-tap-highlight-color: transparent;
+}
+.bn-btn .bn-lbl {
+  font-size: 0.42rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1;
+  font-family: 'DM Sans', sans-serif;
+  white-space: nowrap;
+}
+.bn-btn.on { color: var(--gold); }
+.bn-btn.on::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 16%; right: 16%;
+  height: 2.5px;
+  background: var(--gold);
+  border-radius: 0 0 3px 3px;
+}
+.bn-btn:active { opacity: 0.7; }
 
 </style>
 </head>
@@ -2124,107 +2142,64 @@ document.querySelectorAll('.grant-card, .pub-card, .book-card, .org-card, .cert-
 });
 
 
-/* ── Bottom Nav JS ── */
+/* ── Bottom Nav JS (scrollable) ── */
 function bnGo(btn, pg) {
   goTo(pg);
-  document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('on'));
+  // highlight
+  document.querySelectorAll('.bn-btn').forEach(function(b) {
+    b.classList.remove('on');
+  });
   btn.classList.add('on');
-  bnClose();
-}
-
-function bnMore() {
-  var d = document.getElementById('bn-drawer');
-  var s = document.getElementById('bn-scrim');
-  var open = d.classList.toggle('open');
-  s.style.display = open ? 'block' : 'none';
-}
-
-function bnClose() {
-  document.getElementById('bn-drawer').classList.remove('open');
-  document.getElementById('bn-scrim').style.display = 'none';
-}
-
-function bnDrawer(pg) {
-  bnClose();
-  goTo(pg);
-  document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('on'));
-  document.getElementById('bn-more').classList.add('on');
+  // auto-scroll the nav so active button is visible
+  var scroll = document.getElementById('bnav-scroll');
+  if (scroll) {
+    var btnLeft   = btn.offsetLeft;
+    var btnWidth  = btn.offsetWidth;
+    var scrollW   = scroll.offsetWidth;
+    var target    = btnLeft - (scrollW / 2) + (btnWidth / 2);
+    scroll.scrollTo({ left: target, behavior: 'smooth' });
+  }
 }
 
 /* Keep bottom nav in sync with any goTo() call */
 (function() {
   var _orig = goTo;
-  var primary = ['home','profil','penelitian','publikasi','petanque'];
   goTo = function(pg) {
     _orig(pg);
-    var btns = document.querySelectorAll('.bn-btn:not(#bn-more)');
-    var more = document.getElementById('bn-more');
-    btns.forEach(function(b){ b.classList.remove('on'); });
-    if (more) more.classList.remove('on');
-    if (primary.indexOf(pg) >= 0) {
-      var match = document.querySelector('.bn-btn[data-pg="'+pg+'"]');
-      if (match) match.classList.add('on');
-    } else if (more) {
-      more.classList.add('on');
+    var btns = document.querySelectorAll('.bn-btn');
+    btns.forEach(function(b) { b.classList.remove('on'); });
+    var match = document.querySelector('.bn-btn[data-pg="' + pg + '"]');
+    if (match) {
+      match.classList.add('on');
+      // scroll nav to show active
+      var scroll = document.getElementById('bnav-scroll');
+      if (scroll) {
+        var target = match.offsetLeft - (scroll.offsetWidth / 2) + (match.offsetWidth / 2);
+        scroll.scrollTo({ left: target, behavior: 'smooth' });
+      }
     }
   };
 })();
 
 </script>
 
-<!-- ══ BOTTOM NAV (mobile only) ══ -->
+<!-- ══ BOTTOM NAV — scrollable (mobile only) ══ -->
 <nav class="bnav" id="bnav">
-  <div class="bnav-row">
-    <button class="bn-btn on" data-pg="home" onclick="bnGo(this,'home')">
-      <span>🏠</span><span class="bn-lbl">Beranda</span>
-    </button>
-    <button class="bn-btn" data-pg="profil" onclick="bnGo(this,'profil')">
-      <span>👤</span><span class="bn-lbl">Profil</span>
-    </button>
-    <button class="bn-btn" data-pg="penelitian" onclick="bnGo(this,'penelitian')">
-      <span>🔬</span><span class="bn-lbl">Riset</span>
-    </button>
-    <button class="bn-btn" data-pg="publikasi" onclick="bnGo(this,'publikasi')">
-      <span>📄</span><span class="bn-lbl">Publikasi</span>
-    </button>
-    <button class="bn-btn" data-pg="petanque" onclick="bnGo(this,'petanque')">
-      <span>🎯</span><span class="bn-lbl">Petanque</span>
-    </button>
-    <button class="bn-btn" id="bn-more" onclick="bnMore()">
-      <span>⊞</span><span class="bn-lbl">Lainnya</span>
-    </button>
+  <div class="bnav-scroll" id="bnav-scroll">
+    <button class="bn-btn on" data-pg="home"        onclick="bnGo(this,'home')">        <span>🏠</span><span class="bn-lbl">Beranda</span>    </button>
+    <button class="bn-btn"    data-pg="profil"       onclick="bnGo(this,'profil')">       <span>👤</span><span class="bn-lbl">Profil</span>      </button>
+    <button class="bn-btn"    data-pg="pendidikan"   onclick="bnGo(this,'pendidikan')">   <span>🎓</span><span class="bn-lbl">Pendidikan</span>  </button>
+    <button class="bn-btn"    data-pg="pengalaman"   onclick="bnGo(this,'pengalaman')">   <span>💼</span><span class="bn-lbl">Pengalaman</span>  </button>
+    <button class="bn-btn"    data-pg="penelitian"   onclick="bnGo(this,'penelitian')">   <span>🔬</span><span class="bn-lbl">Riset</span>       </button>
+    <button class="bn-btn"    data-pg="pengabdian"   onclick="bnGo(this,'pengabdian')">   <span>🤝</span><span class="bn-lbl">Pengabdian</span>  </button>
+    <button class="bn-btn"    data-pg="publikasi"    onclick="bnGo(this,'publikasi')">    <span>📄</span><span class="bn-lbl">Publikasi</span>   </button>
+    <button class="bn-btn"    data-pg="buku"         onclick="bnGo(this,'buku')">         <span>📚</span><span class="bn-lbl">Buku & HKI</span>  </button>
+    <button class="bn-btn"    data-pg="petanque"     onclick="bnGo(this,'petanque')">     <span>🎯</span><span class="bn-lbl">Petanque</span>    </button>
+    <button class="bn-btn"    data-pg="awards"       onclick="bnGo(this,'awards')">       <span>🏆</span><span class="bn-lbl">Prestasi</span>    </button>
+    <button class="bn-btn"    data-pg="org"          onclick="bnGo(this,'org')">          <span>🌐</span><span class="bn-lbl">Organisasi</span>  </button>
+    <button class="bn-btn"    data-pg="kontak"       onclick="bnGo(this,'kontak')">       <span>✉️</span><span class="bn-lbl">Kontak</span>      </button>
   </div>
 </nav>
-
-<!-- ══ MORE DRAWER ══ -->
-<div class="bn-drawer" id="bn-drawer">
-  <div class="bn-drawer-pip"></div>
-  <div class="bn-drawer-title">Semua Menu</div>
-  <div class="bn-drawer-grid">
-    <button class="bn-drawer-btn" onclick="bnDrawer('pendidikan')">
-      <span>🎓</span><span>Pendidikan</span>
-    </button>
-    <button class="bn-drawer-btn" onclick="bnDrawer('pengalaman')">
-      <span>💼</span><span>Pengalaman</span>
-    </button>
-    <button class="bn-drawer-btn" onclick="bnDrawer('pengabdian')">
-      <span>🤝</span><span>Pengabdian</span>
-    </button>
-    <button class="bn-drawer-btn" onclick="bnDrawer('buku')">
-      <span>📚</span><span>Buku & HKI</span>
-    </button>
-    <button class="bn-drawer-btn" onclick="bnDrawer('awards')">
-      <span>🏆</span><span>Prestasi</span>
-    </button>
-    <button class="bn-drawer-btn" onclick="bnDrawer('org')">
-      <span>🌐</span><span>Organisasi</span>
-    </button>
-    <button class="bn-drawer-btn" onclick="bnDrawer('kontak')">
-      <span>✉️</span><span>Kontak</span>
-    </button>
-  </div>
-</div>
-<div class="bn-scrim" id="bn-scrim" onclick="bnClose()"></div>
 
 </body>
 </html>
