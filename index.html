@@ -412,6 +412,7 @@ a.bcard:hover .bttl { color: var(--blue); }
    PORTAL UJIAN
 ══════════════════════════════════════ */
 #pg-ujian { background: var(--ow); }
+#pg-ujian.on { display: block !important; }
 
 .ujian-banner {
   display: flex; gap: 1rem; align-items: flex-start;
@@ -748,6 +749,7 @@ a.bcard:hover .bttl { color: var(--blue); }
 <div class="pg" id="pg-penelitian">
   <div class="pi">
     <div class="stag">Riset & Inovasi</div>
+
     <h2 class="stit">Penelitian & <span>Hibah</span></h2>
     <p class="ssub">17 hibah penelitian, PKM, dan project — diurutkan dari nilai terbesar</p>
     <div class="sdiv"></div>
@@ -1496,17 +1498,17 @@ a.bcard:hover .bttl { color: var(--blue); }
 
     <!-- Filter prodi -->
     <div class="ujian-filter">
-      <button class="ujian-fbtn ujian-fon" onclick="filterMK(this,'all')">Semua (25)</button>
-      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'D4 MIK')">D4 MIK</button>
-      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'S1 Kesmas')">S1 Kesmas</button>
-      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'D4 Promkes')">D4 Promkes</button>
-      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'S1 MIK')">S1 MIK</button>
-      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'FOPI')">🎯 Petanque</button>
+      <button class="ujian-fbtn ujian-fon" onclick="filterMK(this,'all')">Semua (26)</button>
+      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'D4 MIK')">D4 MIK (14)</button>
+      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'S1 Kesmas')">S1 Kesmas (6)</button>
+      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'D4 Promkes')">D4 Promkes (3)</button>
+      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'S1 MIK')">S1 MIK (1)</button>
+      <button class="ujian-fbtn ujian-foff" onclick="filterMK(this,'FOPI')">🎯 Petanque (2)</button>
     </div>
 
     <!-- Grid mata kuliah -->
     <div class="ujian-grid" id="ujian-grid">
-        <div class="ujian-card" id="mk-pembiayaan_kesehatan_berbasis_">
+        <div class="ujian-card" id="mk-pembiayaan_kesehatan_berbasis_" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
             <div class="ujian-emoji">💰</div>
             <div class="ujian-info">
@@ -1524,7 +1526,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-sistem_pembiayaan_kesehatan">
+        <div class="ujian-card" id="mk-sistem_pembiayaan_kesehatan" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
             <div class="ujian-emoji">🏥</div>
             <div class="ujian-info">
@@ -1542,7 +1544,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-pembiayaan_kesehatan_dan_peren">
+        <div class="ujian-card" id="mk-pembiayaan_kesehatan_dan_peren" data-prodi="S1 Kesmas">
           <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
             <div class="ujian-emoji">📊</div>
             <div class="ujian-info">
@@ -1560,7 +1562,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-statistik_fasilitas_pelayanan_">
+        <div class="ujian-card" id="mk-statistik_fasilitas_pelayanan_" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">📈</div>
             <div class="ujian-info">
@@ -1578,7 +1580,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-analisis_geospasial">
+        <div class="ujian-card" id="mk-analisis_geospasial" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">🗺️</div>
             <div class="ujian-info">
@@ -1596,7 +1598,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-pengantar_rekam_medis_elektron">
+        <div class="ujian-card" id="mk-pengantar_rekam_medis_elektron" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">🗂️</div>
             <div class="ujian-info">
@@ -1614,7 +1616,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-electronic_health_record_2">
+        <div class="ujian-card" id="mk-electronic_health_record_2" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">💻</div>
             <div class="ujian-info">
@@ -1632,7 +1634,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-rekam_kesehatan_elektronik">
+        <div class="ujian-card" id="mk-rekam_kesehatan_elektronik" data-prodi="S1 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">📋</div>
             <div class="ujian-info">
@@ -1650,7 +1652,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-telemedicine">
+        <div class="ujian-card" id="mk-telemedicine" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">📱</div>
             <div class="ujian-info">
@@ -1668,7 +1670,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-perencanaan_anggaran">
+        <div class="ujian-card" id="mk-perencanaan_anggaran" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
             <div class="ujian-emoji">📅</div>
             <div class="ujian-info">
@@ -1686,7 +1688,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-data_mining">
+        <div class="ujian-card" id="mk-data_mining" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">🔍</div>
             <div class="ujian-info">
@@ -1704,7 +1706,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-administrasi_kebijakan_kesehat">
+        <div class="ujian-card" id="mk-administrasi_kebijakan_kesehat" data-prodi="D4 Promkes">
           <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
             <div class="ujian-emoji">📜</div>
             <div class="ujian-info">
@@ -1722,7 +1724,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-metodologi_penelitian_kesehata">
+        <div class="ujian-card" id="mk-metodologi_penelitian_kesehata" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">🔬</div>
             <div class="ujian-info">
@@ -1740,7 +1742,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-keamanan_dan_perlindungan_data">
+        <div class="ujian-card" id="mk-keamanan_dan_perlindungan_data" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">🔒</div>
             <div class="ujian-info">
@@ -1758,7 +1760,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-aplikasi_perangkat_lunak_faske">
+        <div class="ujian-card" id="mk-aplikasi_perangkat_lunak_faske" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">⚙️</div>
             <div class="ujian-info">
@@ -1776,7 +1778,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-biostatistik">
+        <div class="ujian-card" id="mk-biostatistik" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">📐</div>
             <div class="ujian-info">
@@ -1794,7 +1796,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-sistem_informasi_kesehatan">
+        <div class="ujian-card" id="mk-sistem_informasi_kesehatan" data-prodi="S1 Kesmas">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">🖥️</div>
             <div class="ujian-info">
@@ -1812,7 +1814,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-ekonometri_kesehatan">
+        <div class="ujian-card" id="mk-ekonometri_kesehatan" data-prodi="S1 Kesmas">
           <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
             <div class="ujian-emoji">📉</div>
             <div class="ujian-info">
@@ -1830,7 +1832,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-jaminan_kesehatan_nasional">
+        <div class="ujian-card" id="mk-jaminan_kesehatan_nasional" data-prodi="D4 Promkes">
           <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
             <div class="ujian-emoji">🏛️</div>
             <div class="ujian-info">
@@ -1848,7 +1850,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-epidemiologi">
+        <div class="ujian-card" id="mk-epidemiologi" data-prodi="D4 Promkes">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">🦠</div>
             <div class="ujian-info">
@@ -1866,7 +1868,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-kepemimpinan">
+        <div class="ujian-card" id="mk-kepemimpinan" data-prodi="D4 MIK">
           <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
             <div class="ujian-emoji">🌟</div>
             <div class="ujian-info">
@@ -1884,7 +1886,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-komunikasi_kesehatan">
+        <div class="ujian-card" id="mk-komunikasi_kesehatan" data-prodi="S1 Kesmas">
           <div class="ujian-card-top" style="border-left:4px solid #5B9BD5;">
             <div class="ujian-emoji">💬</div>
             <div class="ujian-info">
@@ -1902,7 +1904,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-perencanaan_dan_evaluasi_keseh">
+        <div class="ujian-card" id="mk-perencanaan_dan_evaluasi_keseh" data-prodi="S1 Kesmas">
           <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
             <div class="ujian-emoji">📝</div>
             <div class="ujian-info">
@@ -1920,7 +1922,7 @@ a.bcard:hover .bttl { color: var(--blue); }
             </a>
           </div>
         </div>
-        <div class="ujian-card" id="mk-pelatihan_pelatih_petanque" style="border:1px solid rgba(22,163,74,.4);">
+                <div class="ujian-card" id="mk-pelatihan_pelatih_petanque" data-prodi="FOPI" style="border:1px solid rgba(22,163,74,.4);">
           <div class="ujian-card-top" style="border-left:4px solid #16A34A;background:linear-gradient(135deg,rgba(22,163,74,.06) 0%,var(--white) 100%);">
             <div class="ujian-emoji">🎯</div>
             <div class="ujian-info">
@@ -1933,11 +1935,10 @@ a.bcard:hover .bttl { color: var(--blue); }
           </div>
           <div class="ujian-card-body">
             <div class="ujian-status ujian-aktif">✅ Ujian tersedia</div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtcqRyc1nFxseCUSOMyotqwHLBMqVu4hkMI5F_eSpC6WBT0Q/viewform?usp=dialog" target="_blank" rel="noopener" class="ujian-btn ujian-btn-aktif">
-              📝 Mulai Ujian
-            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtcqRyc1nFxseCUSOMyotqwHLBMqVu4hkMI5F_eSpC6WBT0Q/viewform?usp=dialog" target="_blank" rel="noopener" class="ujian-btn ujian-btn-aktif">📝 Mulai Ujian</a>
           </div>
-        <div class="ujian-card" id="mk-evaluasi_arbitre_petanque" style="border:1px solid rgba(22,163,74,.4);">
+        </div>
+        <div class="ujian-card" id="mk-evaluasi_arbitre_petanque" data-prodi="FOPI" style="border:1px solid rgba(22,163,74,.4);">
           <div class="ujian-card-top" style="border-left:4px solid #16A34A;background:linear-gradient(135deg,rgba(22,163,74,.06) 0%,var(--white) 100%);">
             <div class="ujian-emoji">🟡</div>
             <div class="ujian-info">
@@ -1950,12 +1951,24 @@ a.bcard:hover .bttl { color: var(--blue); }
           </div>
           <div class="ujian-card-body">
             <div class="ujian-status ujian-aktif">✅ Ujian tersedia</div>
-            <a href="https://forms.gle/nVZeQtKencM7neR5A" target="_blank" rel="noopener" class="ujian-btn ujian-btn-aktif">
-              📝 Mulai Ujian
-            </a>
+            <a href="https://forms.gle/nVZeQtKencM7neR5A" target="_blank" rel="noopener" class="ujian-btn ujian-btn-aktif">📝 Mulai Ujian</a>
           </div>
         </div>
-        </div>
+        <div class="ujian-card" id="mk-epidemiologi_ptm" data-prodi="S1 Kesmas">
+          <div class="ujian-card-top" style="border-left:4px solid #C9A227;">
+            <div class="ujian-emoji">🦠</div>
+            <div class="ujian-info">
+              <div class="ujian-nama">Epidemiologi PTM</div>
+              <div class="ujian-meta">
+                <span class="ujian-badge" style="background:rgba(201,162,39,.18);color:#E8C656;border:1px solid rgba(201,162,39,.3);">S1 Kesmas</span>
+                <span class="ujian-sks">2 SKS</span>
+              </div>
+            </div>
+          </div>
+          <div class="ujian-card-body">
+            <div class="ujian-status ujian-aktif">✅ Ujian tersedia</div>
+            <a href="https://forms.gle/m7aQhT5p5ozQieZKA" target="_blank" rel="noopener" class="ujian-btn ujian-btn-aktif">📝 Mulai Ujian</a>
+          </div>
     </div>
 
     <!-- Footer info -->
@@ -1998,6 +2011,15 @@ function goTo(id) {
   document.querySelectorAll('.nls a').forEach(function(a){
     a.classList.toggle('on', a.dataset.page === id);
   });
+  // Reset filter ujian ke "Semua" saat halaman ujian dibuka
+  if (id === 'ujian') {
+    document.querySelectorAll('.ujian-card').forEach(function(c){ c.style.display = ''; });
+    document.querySelectorAll('.ujian-fbtn').forEach(function(b){
+      b.classList.remove('ujian-fon'); b.classList.add('ujian-foff');
+    });
+    var allBtn = document.querySelector('.ujian-fbtn');
+    if(allBtn){ allBtn.classList.remove('ujian-foff'); allBtn.classList.add('ujian-fon'); }
+  }
 }
 
 // ─── Nav links desktop ───
@@ -2052,7 +2074,7 @@ function pflt(btn, cat) {
 }
 
 // ─── Mobile bottom nav ───
-var _PG = ['home','profil','pendidikan','pengalaman','penelitian','pengabdian','publikasi','buku','petanque','awards','org','kontak'];
+var _PG = ['home','profil','pendidikan','pengalaman','penelitian','pengabdian','publikasi','buku','petanque','awards','org','kontak','ujian'];
 function mgo(btn, pg) {
   goTo(pg);
   document.querySelectorAll('.mnb').forEach(function(b){ b.classList.remove('on'); });
@@ -2074,8 +2096,7 @@ function filterMK(btn, prodi) {
     if (prodi === 'all') {
       c.style.display = '';
     } else {
-      var badge = c.querySelector('.ujian-badge');
-      c.style.display = (badge && badge.textContent.includes(prodi)) ? '' : 'none';
+      c.style.display = (c.dataset.prodi === prodi) ? '' : 'none';
     }
   });
 }
