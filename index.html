@@ -332,6 +332,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nh);background:
   .sn{font-size:1.25rem !important;}
   .sl{font-size:.48rem !important;}
   .hca{display:grid !important;grid-template-columns:1fr 1fr !important;gap:9px !important;}
+  .hca .btn-ujian{grid-column:1 / -1 !important;}
   .bg,.bgh{text-align:center !important;padding:12px 6px !important;font-size:.76rem !important;}
   .pi{padding:20px 14px 28px !important;}
   .stit{font-size:1.35rem !important;}
@@ -584,6 +585,37 @@ a.bcard:hover .bttl { color: var(--blue); }
   border-color: rgba(124,58,237,.7) !important;
 }
 
+
+.btn-ujian {
+  padding: 11px 26px;
+  background: linear-gradient(135deg, #7C3AED, #9C5BF0);
+  color: white;
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 3px 14px rgba(124,58,237,.4);
+  transition: all .2s;
+}
+.btn-ujian:hover {
+  background: linear-gradient(135deg, #6D28D9, #8B5CF6);
+  box-shadow: 0 5px 18px rgba(124,58,237,.55);
+  transform: translateY(-1px);
+}
+
+@media(max-width:768px){
+  .btn-ujian {
+    text-align: center !important;
+    padding: 12px 6px !important;
+    font-size: .76rem !important;
+    grid-column: 1 / -1;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -646,6 +678,7 @@ a.bcard:hover .bttl { color: var(--blue); }
       <div class="hca">
         <a href="#" class="bg" onclick="goTo('profil');return false;">Lihat Profil</a>
         <a href="#" class="bgh" onclick="goTo('kontak');return false;">Hubungi Saya</a>
+        <a href="#" class="btn-ujian" onclick="goTo('ujian');return false;">📝 Portal Ujian</a>
       </div>
     </div>
     <div class="hfoto">
@@ -701,6 +734,12 @@ a.bcard:hover .bttl { color: var(--blue); }
           <span class="cp cpb">Manajemen Informasi Kesehatan</span><span class="cp cpb">Sistem Informasi Kesehatan</span>
           <span class="cp cpb">Analisis Data Kesehatan</span><span class="cp cpg">Olahraga Petanque</span>
           <span class="cp cpg">Sports Science (AIFO-P)</span>
+        </div>
+        <h3>Keahlian & Kompetensi</h3>
+        <div class="skgrid">
+          <div><div class="skttl">Teknis Kesehatan</div><div class="sktags"><span class="sktag">Pembiayaan Kesehatan</span><span class="sktag">Analisis CBA/CEA/BIA/ABC</span><span class="sktag">Sistem Informasi Kesehatan</span><span class="sktag">SIMRS · SITB · e-Puskesmas</span><span class="sktag">Metodologi Riset Kuantitatif</span><span class="sktag">Metodologi Riset Kualitatif</span><span class="sktag">Analisis Geospasial</span><span class="sktag">Sports Science (AIFO-P)</span></div></div>
+          <div><div class="skttl">Software & Analitik</div><div class="sktags"><span class="sktag">SPSS</span><span class="sktag">STATA</span><span class="sktag">NVIVO</span><span class="sktag">QGIS</span><span class="sktag">Excel Advanced</span><span class="sktag">Google Looker Studio</span><span class="sktag">Moodle · Google Classroom</span><span class="sktag">Microsoft Office Suite</span></div></div>
+          <div><div class="skttl">AI & Digital</div><div class="sktags"><span class="sktag">Claude.ai</span><span class="sktag">ChatGPT</span><span class="sktag">Leonardo.ai</span><span class="sktag">Gamma.ai</span><span class="sktag">ElevenLabs</span><span class="sktag">Notebook.lm</span><span class="sktag">B.Indonesia: Native</span><span class="sktag">B.Inggris: B2</span></div></div>
         </div>
         <h3>Profil Digital</h3>
         <div class="srow">
@@ -1567,8 +1606,8 @@ a.bcard:hover .bttl { color: var(--blue); }
 
 <div class="pg" id="pg-org">
   <div class="pi">
-    <div class="stag">Keanggotaan & Kompetensi</div>
-    <h2 class="stit">Organisasi & <span>Keahlian</span></h2>
+    <div class="stag">Keanggotaan</div>
+    <h2 class="stit">Organisasi & <span>Keanggotaan</span></h2>
     <div class="sdiv"></div>
     <h3 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.1rem;margin-bottom:1rem;">Organisasi & Keanggotaan</h3>
     <div class="ogrid">
@@ -1583,12 +1622,7 @@ a.bcard:hover .bttl { color: var(--blue); }
       <div class="ocard"><div class="odot"></div><div><div class="orole">Pembina Ekstrakurikuler</div><div class="oname">SMAN 3 Denpasar — Cabor Petanque</div><div class="oper">2024 – Sekarang</div></div></div>
       <div class="ocard"><div class="odot"></div><div><div class="orole">Bidang Penelitian & Pengembangan</div><div class="oname">Pengurus Prov. Perisai Diri Bali</div><div class="oper">2025 – 2029</div></div></div>
     </div>
-    <h3 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.1rem;margin-bottom:1rem;margin-top:2.5rem;">Keahlian & Kompetensi</h3>
-    <div class="skgrid">
-      <div><div class="skttl">Teknis Kesehatan</div><div class="sktags"><span class="sktag">Pembiayaan Kesehatan</span><span class="sktag">Analisis CBA/CEA/BIA/ABC</span><span class="sktag">Sistem Informasi Kesehatan</span><span class="sktag">SIMRS · SITB · e-Puskesmas</span><span class="sktag">Metodologi Riset Kuantitatif</span><span class="sktag">Metodologi Riset Kualitatif</span><span class="sktag">Analisis Geospasial</span><span class="sktag">Sports Science (AIFO-P)</span></div></div>
-      <div><div class="skttl">Software & Analitik</div><div class="sktags"><span class="sktag">SPSS</span><span class="sktag">STATA</span><span class="sktag">NVIVO</span><span class="sktag">QGIS</span><span class="sktag">Excel Advanced</span><span class="sktag">Google Looker Studio</span><span class="sktag">Moodle · Google Classroom</span><span class="sktag">Microsoft Office Suite</span></div></div>
-      <div><div class="skttl">AI & Digital</div><div class="sktags"><span class="sktag">Claude.ai</span><span class="sktag">ChatGPT</span><span class="sktag">Leonardo.ai</span><span class="sktag">Gamma.ai</span><span class="sktag">ElevenLabs</span><span class="sktag">Notebook.lm</span><span class="sktag">B.Indonesia: Native</span><span class="sktag">B.Inggris: B2</span></div></div>
-    </div>
+
   </div>
 </div>
 
