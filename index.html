@@ -503,6 +503,12 @@ a.bcard:hover .bttl { color: var(--blue); }
   box-shadow: 0 2px 8px rgba(37,99,168,.3);
 }
 .ujian-btn-aktif:hover { background: var(--navy); }
+.ujian-btn-uas {
+  background: var(--navy); color: var(--white);
+  box-shadow: 0 2px 8px rgba(13,43,78,.3);
+}
+.ujian-btn-uas:hover { background: #0a1e3d; }
+.ujian-btn-group { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 
 .ujian-footer {
   display: flex; flex-wrap: wrap; gap: .5rem;
@@ -2009,8 +2015,8 @@ a.bcard:hover .bttl { color: var(--blue); }
             </div>
           </div>
           <div class="ujian-card-body">
-            <div class="ujian-status ujian-belum">⏳ Soal belum tersedia</div>
-            <a href="#" class="ujian-btn ujian-btn-disabled" onclick="return false;" title="Link ujian belum diatur">
+            <div class="ujian-status ujian-aktif">✅ Ujian Aktif</div>
+            <a href="https://forms.gle/8KCy5bwkmGp3jp2C7" target="_blank" rel="noopener" class="ujian-btn ujian-btn-aktif">
               📝 Mulai Ujian
             </a>
           </div>
@@ -2420,7 +2426,10 @@ a.bcard:hover .bttl { color: var(--blue); }
           </div>
           <div class="ujian-card-body">
             <div class="ujian-status ujian-aktif">✅ Ujian tersedia</div>
-            <a href="https://forms.gle/m7aQhT5p5ozQieZKA" target="_blank" rel="noopener" class="ujian-btn ujian-btn-aktif">📝 Mulai Ujian</a>
+            <div class="ujian-btn-group">
+              <a href="https://forms.gle/m7aQhT5p5ozQieZKA" target="_blank" rel="noopener" class="ujian-btn ujian-btn-aktif">📝 UTS</a>
+              <a href="https://forms.gle/RjWMG2NPvmd5okkn7" target="_blank" rel="noopener" class="ujian-btn ujian-btn-uas">📝 UAS</a>
+            </div>
           </div>
         </div>
         <div class="ujian-card" id="mk-kuesioner_kesiapan_atlet" data-prodi="FOPI" style="border:1px solid rgba(22,163,74,.4);">
